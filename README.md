@@ -1,4 +1,4 @@
-# Python Template
+# Week 2 Mini Project
 ---
 This repo is for the mini-project 2 for Cloud Computing at Duke University
 

@@ -1,38 +1,52 @@
 # Python Template
 ---
-This repo is for the mini-project 1 for IDS 706 Data Engineering Systems
+This repo is for the mini-project 2 for Cloud Computing at Duke University
 
----
-Using codespaces, this template uses github actions to create a makefile that performs the following:
-* `make install`
-* `make test`
-* `make lint`
-* `make format`
-
-This template also includes:
-* `main.py` and `test_main.py` to confirm the template and github action are performing as expected.
-* dockerfile
-* Various package versions in `requirements.txt`
-
+Create a simple AWS Lambda function that processes data.
 ---
 
-This make file will be used in future projects for this class and personal projects. 
+Project Requirements:
+
+* Rust Lambda Function using Cargo Lambda
+* Process and transform sample data
+
+Points of Focus
+* Lambda functionality
+* API Gateway integration
+* Data processing
 
 ---
+## Lambda Function
+`main.rs` is an AWS Lambda function written in Rust. It takes three inputs: glucose (int), units(int), and outcome(binary).
+It returns percent of glucose with respect to units and product of glucose and units (as json).   
 
-How to Use:
+Requirements for this AWS Lambda function to work
 
-1. Open Codespaces, allow for the environmenet to be set up
-2. Run the make commands: install, format, lint, test
+You must have: 
+* Rust programming language
+* Cargo Lambda for AWS Lambda must be installed, allowing deployment of the lambda function
+* AWS account (you must have correct permissions for aws lambda)
 
-Example Results:
+## Installation and Deployment of lambda function
 
-`make format`:
+* Clone this repo (specifically the new-lambda-project)
+* Install Rust, Cargo, and AWS CLI (make sure to configure!)
+* Set up AWS credentials (mainly access keys)
+* Deploy the lambda function written in rust (`cargo lambda build` followed by `cargo lambda deploy`)
+* Finally, to trigger the Lambda function, we need to set up the api gateway to run the lambda function.
 
-![My Image](Make_Format_Success.png)
+Example Input: 
+{
+  "glucose": 5,
+  "units": "10",
+  "outcome": 1
+}
 
-`make lint`:
-![My Image](Make_Lint_Success.png)
 
-`make test`:
-![My Image](Make_Test_Success.png)
+Example Response: 
+{
+  "percent": .5,
+  "product": 50
+}
+
+
